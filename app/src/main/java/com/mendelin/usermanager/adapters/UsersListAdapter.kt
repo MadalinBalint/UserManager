@@ -50,8 +50,8 @@ class UsersListAdapter(private val usersListViewModel: UsersListViewModel) :
             layoutUser.setOnLongClickListener {
                 ResourceHelper.showAlertMsgAction(
                     context,
-                    "Delete user",
-                    "Are you sure you want to delete the user ${item.name}"
+                    "Delete user ${item.name}",
+                    "Are you sure you want to remove this user?"
                 ) {
                     // Delete user
                     Timber.e("ID = ${item.id}")

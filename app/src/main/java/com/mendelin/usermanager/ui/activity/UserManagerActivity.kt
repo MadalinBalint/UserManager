@@ -42,7 +42,8 @@ class UserManagerActivity : AppCompatActivity(), ActivityCallback {
         supportActionBar!!.setDisplayHomeAsUpEnabled(false)
 
         binding.fabCreateUser.setOnClickListener {
-            val createUserDialog = CreateUserDialog {
+            val createUserDialog = CreateUserDialog()
+            createUserDialog.setOnSuccessListener {
                 usersListViewModel.fetchUsersList(this)
             }
             createUserDialog.show(supportFragmentManager, "createUser")

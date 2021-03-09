@@ -14,10 +14,15 @@ import timber.log.Timber
 
 typealias CreateUserSuccess = () -> Unit
 
-class CreateUserDialog(private val onSuccess: CreateUserSuccess?) : AppCompatDialogFragment() {
+class CreateUserDialog() : AppCompatDialogFragment() {
 
+    private var onSuccess: CreateUserSuccess? = null
     private var binding: FragmentCreateUserBinding? = null
     private val createUserViewModel: CreateUserViewModel by viewModels { defaultViewModelProviderFactory }
+
+    fun setOnSuccessListener(listener: CreateUserSuccess) {
+        onSuccess = listener
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = FragmentCreateUserBinding.inflate(LayoutInflater.from(context))

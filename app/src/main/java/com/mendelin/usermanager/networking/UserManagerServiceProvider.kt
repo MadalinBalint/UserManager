@@ -23,7 +23,10 @@ object UserManagerServiceProvider {
                     val builder = chain.request().newBuilder()
                     builder.header("Accept", "application/json")
                     builder.header("Content-Type", "application/json")
-                    builder.header("Authorization", "${BuildConfig.API_BEARER} ${BuildConfig.REST_API_ACCESS_TOKEN}")
+                    builder.header(
+                        "Authorization",
+                        "${BuildConfig.API_BEARER} ${BuildConfig.REST_API_ACCESS_TOKEN}"
+                    )
 
                     var response = chain.proceed(builder.build())
 
@@ -54,16 +57,16 @@ object UserManagerServiceProvider {
             )
         }.build()
 
-
-    private fun retrofitBuilderInstance(): Retrofit {
-        val gson = GsonBuilder()
+    private fun getGson() =
+        GsonBuilder()
             .setLenient()
             .create()
 
+    private fun retrofitBuilderInstance(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient())
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(getGson()))
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
     }

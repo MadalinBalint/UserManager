@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".ItemUserBinding">
+
+        <variable
+            name="property"
+            type="com.mendelin.usermanager.models.UserObject" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:background="#eFeFeF"
+        app:cardBackgroundColor="#eFeFeF"
+        app:cardCornerRadius="@dimen/button_radius"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:id="@+id/layoutUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="#eFeFeF"
+            android:orientation="vertical">
+
+            <!-- User name -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:text="@string/user_item_name"
+                android:textColor="#656565"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:includeFontPadding="false"
+                android:text="@{property.name}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="Shresthi Chopra" />
+
+            <!-- User e-mail -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:text="@string/user_item_email"
+                android:textColor="#656565"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtUserEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:includeFontPadding="false"
+                android:text="@{property.email}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="chopra_shresthi@yundt-west.net" />
+
+            <!-- Creation time -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="2dp"
+                android:includeFontPadding="false"
+                android:text="@string/user_item_creation_time"
+                android:textColor="#656565"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtCreationTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:includeFontPadding="false"
+                android:text="@{property.created_at}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                tools:text="2021-03-09T03:50:03.458+05:30" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

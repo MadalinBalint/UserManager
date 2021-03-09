@@ -1,0 +1,105 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class=".FragmentCreateUserBinding" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="20dp"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                android:gravity="center_horizontal"
+                android:includeFontPadding="false"
+                android:text="@string/create_user_title"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <!-- Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputName"
+                style="@style/TextInputStyle"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextInputTheme"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editName"
+                    style="@style/TextInputEditStyle"
+                    android:hint="@string/create_user_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- E-mail -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputEmail"
+                style="@style/TextInputStyle"
+                android:layout_marginBottom="8dp"
+                android:theme="@style/TextInputTheme"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:startIconDrawable="@drawable/ic_email">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editEmail"
+                    style="@style/TextInputEditStyle"
+                    android:hint="@string/create_user_email"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:orientation="horizontal">
+
+                <!-- Cancel button -->
+                <Button
+                    android:id="@+id/btnCancel"
+                    style="@style/RoundedButtonTransparent"
+                    android:layout_width="wrap_content"
+                    android:text="@string/create_user_btn_cancel"
+                    android:textAllCaps="true" />
+
+                <!-- Ok button -->
+                <Button
+                    android:id="@+id/btnOk"
+                    style="@style/RoundedButtonTransparent"
+                    android:layout_width="wrap_content"
+                    android:text="@string/create_user_btn_ok"
+                    android:textAllCaps="true" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Progress bar -->
+        <ProgressBar
+            android:id="@+id/progressCreateUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible" />
+
+    </FrameLayout>
+
+</layout>

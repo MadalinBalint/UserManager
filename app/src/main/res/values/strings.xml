@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">User manager</string>
+
+    <!-- Alert box -->
+    <string name="alert_error">Error</string>
+    <string name="alert_warning">Warning</string>
+    <string name="alert_ok">OK</string>
+    <string name="alert_cancel">Cancel</string>
+    <string name="alert_close">Close</string>
+
+    <string name="alert_yes">Yes</string>
+    <string name="alert_no">No</string>
+
+    <!-- Errors -->
+    <string name="err_user_relogin">Unfortunately your session has expired and you have to login back using your credentials.</string>
+    <string name="err_null_response">Null or empty response from server.</string>
+    <string name="err_unknown">Unknown error.</string>
+    <string name="err_unexpected">Unexpected network error.</string>
+    <string name="err_admin">Because you have a role of Admin please use the web interface.</string>
+    <string name="err_search">The search for \'%s\' returned no results from server. Please try again but with a different keyword.</string>
+    <string name="error_empty_list">Empty list</string>
+    <string name="error_device_not_available">Device not available</string>
+    <string name="err_credentials">Your credentials (username/password) are incorrect.</string>
+
+    <!-- Users list fragment -->
+    <string name="users_list_title">Users list</string>
+    <string name="users_list_press_back_again">Press back again to exit</string>
+    <string name="users_list_create_new_user">Create a new user</string>
+
+    <!-- User item -->
+    <string name="user_item_creation_time">Creation time</string>
+    <string name="user_item_email">E-mail</string>
+    <string name="user_item_name">Name</string>
+    <string name="create_user_title">Create new user</string>
+    <string name="create_user_btn_ok">Ok</string>
+    <string name="create_user_btn_cancel">Cancel</string>
+    <string name="create_user_name">Name</string>
+    <string name="create_user_email">E-mail</string>
+
+</resources>

@@ -1,0 +1,56 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class=".FragmentUsersListBinding" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        tools:context=".ui.fragments.UsersListFragment">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/layoutUsersList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Error message -->
+                <TextView
+                    android:id="@+id/txtErrorMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:textColor="@color/teal_700"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <!-- Users recyclerview -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerUsers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="never"
+                    tools:listitem="@layout/item_user" />
+
+            </LinearLayout>
+
+            <!-- Progress bar -->
+            <ProgressBar
+                android:id="@+id/progressUsersList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

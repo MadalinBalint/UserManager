@@ -8,6 +8,11 @@
         <variable
             name="property"
             type="com.mendelin.usermanager.models.UserObject" />
+
+        <variable
+            name="helper"
+            type="com.mendelin.usermanager.common.ResourceHelper" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -100,7 +105,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:includeFontPadding="false"
-                android:text="@{property.created_at}"
+                android:text="@{helper.getCreatedAtRelative(property.created_at)}"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 tools:text="2021-03-09T03:50:03.458+05:30" />

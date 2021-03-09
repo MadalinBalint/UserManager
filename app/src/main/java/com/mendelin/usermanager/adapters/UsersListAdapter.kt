@@ -21,6 +21,7 @@ class UsersListAdapter(private val usersListViewModel: UsersListViewModel) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(property: UserObject) {
             binding.property = property
+            binding.helper = ResourceHelper
             binding.executePendingBindings()
         }
     }

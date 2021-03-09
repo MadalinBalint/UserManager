@@ -1,5 +1,6 @@
 package com.mendelin.usermanager.networking
 
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mendelin.usermanager.BuildConfig
 import okhttp3.Interceptor
@@ -57,20 +58,35 @@ object UserManagerServiceProvider {
             )
         }.build()
 
-    private fun getGson() =
+    fun getGson(): Gson =
         GsonBuilder()
             .setLenient()
             .create()
 
-    private fun retrofitBuilderInstance(): Retrofit {
+    fun getGsonFactory(gson: Gson): GsonConverterFactory =
+        GsonConverterFactory.create(gson)
+
+    fun getRxJavaFactory(): RxJava3CallAdapterFactory =
+        RxJava3CallAdapterFactory.create()
+
+    private fun retrofitBuilderInstance(
+        gsonFactory: GsonConverterFactory,
+        rxJavaFactory: RxJava3CallAdapterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient())
-            .addConverterFactory(GsonConverterFactory.create(getGson()))
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(gsonFactory)
+            .addCallAdapterFactory(rxJavaFactory)
             .build()
     }
 
+    fun buildUserApiService(
+        gsonFactory: GsonConverterFactory,
+        rxJavaFactory: RxJava3CallAdapterFactory
+    ): UserApiService =
+        retrofitBuilderInstance(gsonFactory, rxJavaFactory).create(UserApiService::class.java)
+
     fun userApiService(): UserApiService =
-        retrofitBuilderInstance().create(UserApiService::class.java)
+        buildUserApiService(getGsonFactory(getGson()), getRxJavaFactory())
 }
